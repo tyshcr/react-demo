@@ -1,0 +1,28 @@
+{"transactions":
+  [
+    {
+      "id": 1,
+      "date":"12-24-2021",
+      "customer_id":1,
+      "amount":49.00
+    },
+    {
+      "id": 2,
+      "date":"12-20-2021",
+      "customer_id":1,
+      "amount":52.20
+    },
+    {
+      "id": 3,
+      "date":"12-01-2021",
+      "customer_id":2,
+      "amount":305.75
+    },
+    {
+      "id": 4,
+      "date":"12-27-2021",
+      "customer_id":2,
+      "amount":99.97
+    }
+  ]
+}
