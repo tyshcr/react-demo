@@ -6,7 +6,7 @@ export default class GetData extends React.Component {
   constructor(state) {
     super()
     this.state = {
-      result: {},
+      result: null,
       error: null,
       isLoading: true
     }
@@ -34,6 +34,9 @@ export default class GetData extends React.Component {
                 const points_data = this.calculate(r)
                 this.setState({ result: points_data, isLoading: false })
               }.bind(this), 1500)
+            },
+            e => {
+              this.setState({ error: e, isLoading: false})
             })
 
   } // getData
@@ -98,35 +101,37 @@ export default class GetData extends React.Component {
   }
 
   render() {
-
-    // TODO: check for state.error
     if (!this.state.isLoading) {
-      return (
-        <table border="1">
-          <thead>
-            <tr>
-              <td>Cust ID</td>
-              <td>Month 1</td>
-              <td>Month 2</td>
-              <td>Month 3</td>
-              <td>Total</td>
-            </tr>
-          </thead>
+      if(this.state.result)  {
+        return (
+          <table border="1">
+            <thead>
+              <tr>
+                <td>Cust ID</td>
+                <td>Month 1</td>
+                <td>Month 2</td>
+                <td>Month 3</td>
+                <td>Total</td>
+              </tr>
+            </thead>
 
-          <tbody>
-          {this.state.result.map(r =>
-                                  <tr key={r.customer_id}>
-                                    <td>{r.customer_id}</td>
-                                    <td>{r.points[0]}</td>
-                                    <td>{r.points[1]}</td>
-                                    <td>{r.points[2]}</td>
-                                    <td>{r.points.reduce((prev, cur, index)=>prev+cur, 0)}</td>
-                                  </tr>
-                                )}
-          </tbody>
-        </table>
-      )
-    } else { // not currently accounting for possible data fetch errors
+            <tbody>
+            {this.state.result.map(r =>
+                                    <tr key={r.customer_id}>
+                                      <td>{r.customer_id}</td>
+                                      <td>{r.points[0]}</td>
+                                      <td>{r.points[1]}</td>
+                                      <td>{r.points[2]}</td>
+                                      <td>{r.points.reduce((prev, cur, index)=>prev+cur, 0)}</td>
+                                    </tr>
+                                  )}
+            </tbody>
+          </table>
+        )
+      } else if (this.state.error) {
+        return "There was an error: " + this.state.error
+      }
+    } else {
         return "Loading Data ..."
     }
 
