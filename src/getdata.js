@@ -31,8 +31,8 @@ export default class GetData extends React.Component {
               })
               // use a short timeout for this demo so we can see state change
               setTimeout(function() {
-                const  data = this.calculate(r)
-                this.setState({ result: data, isLoading: false })
+                const points_data = this.calculate(r)
+                this.setState({ result: points_data, isLoading: false })
               }.bind(this), 1500)
             })
 
@@ -42,15 +42,16 @@ export default class GetData extends React.Component {
     let data = []
     let points = []
     let customer_id = 0
-    let month = 0
-    let thismonth = 0
+    let previous_month = 0
+    let transaction_month = 0
     let subtotal = 0
 
 
     array.map((transaction) => {
 
+      // get the month of the current transaction
       let date = moment(transaction.date, 'MM-DD-YYYY')
-      thismonth = date.format('M')
+      transaction_month = date.format('M')
 
       if (customer_id !== transaction.customer_id) {
         // working with a new customer_id
@@ -62,19 +63,19 @@ export default class GetData extends React.Component {
 
         // reset everything for new customer
         customer_id = transaction.customer_id
-        month = thismonth
+        previous_month = transaction_month
         points = []
 
         subtotal = transaction.amount > 0 ? this.getPoints(transaction.amount) : 0;
       } else {
 
-        if (thismonth !== month) {
+        if (transaction_month !== previous_month) {
           // working with a new month
-          if (thismonth > 0) {
+          if (transaction_month > 0) {
             points.push(subtotal) // push the previous month onto the array
             subtotal = 0 // reset the subtotal
           }
-          month = thismonth // set the current month
+          previous_month = transaction_month // set the current month
         }
 
         // add to the current subtotal (customer.points[x])
