@@ -17,12 +17,10 @@ export default class GetData extends React.Component {
   }
 
   getData() {
-
-    // const doCall = () =>
     fetch("/api/data.json")
             .then(r => r.json())
             .then(r => {
-              r.sort((a,b) => {
+              r.sort((a,b) => { // sort the data by customer_id and then by date
                 if (a.customer_id  === b.customer_id) {
                   if (a.date > b.date) return 1;
                   if (a.date < b.date) return -1;
@@ -31,6 +29,7 @@ export default class GetData extends React.Component {
                   return a.customer_id - b.customer_id
                 }
               })
+              // use a short timeout for this demo so we can see state change
               setTimeout(function() {
                 const  data = this.calculate(r)
                 this.setState({ result: data, isLoading: false })
@@ -49,6 +48,10 @@ export default class GetData extends React.Component {
 
 
     array.map((transaction) => {
+
+      let date = moment(transaction.date, 'MM-DD-YYYY')
+      thismonth = date.format('M')
+
       if (customer_id !== transaction.customer_id) {
         // working with a new customer_id
         if (customer_id > 0) {
@@ -59,18 +62,11 @@ export default class GetData extends React.Component {
 
         // reset everything for new customer
         customer_id = transaction.customer_id
-        thismonth = 0
-        month = 0
+        month = thismonth
         points = []
-
-        let date = moment(transaction.date, 'MM-DD-YYYY')
-        month = date.format('M')
 
         subtotal = transaction.amount > 0 ? this.getPoints(transaction.amount) : 0;
       } else {
-
-        let date = moment(transaction.date, 'MM-DD-YYYY')
-        thismonth = date.format('M')
 
         if (thismonth !== month) {
           // working with a new month
@@ -85,8 +81,9 @@ export default class GetData extends React.Component {
         subtotal += this.getPoints(transaction.amount);
       }
     })
-    points.push(subtotal)
-    data.push({ customer_id: customer_id, points: points }); // push the last customer onto the array
+
+    points.push(subtotal) // push the last points onto the points array
+    data.push({ customer_id: customer_id, points: points }); // push the last customer onto the data array
     return data
   }
 
@@ -103,8 +100,6 @@ export default class GetData extends React.Component {
 
     // TODO: check for state.error
     if (!this.state.isLoading) {
-      // this.calculate(this.state.result)
-
       return (
         <table border="1">
           <thead>
@@ -124,15 +119,13 @@ export default class GetData extends React.Component {
                                     <td>{r.points[0]}</td>
                                     <td>{r.points[1]}</td>
                                     <td>{r.points[2]}</td>
-                                    <td>{r.points.reduce(
-(prev, cur, index)=>prev+cur, 
-0)}</td>
+                                    <td>{r.points.reduce((prev, cur, index)=>prev+cur, 0)}</td>
                                   </tr>
                                 )}
           </tbody>
         </table>
       )
-    } else {
+    } else { // not currently accounting for possible data fetch errors
         return "Loading Data ..."
     }
 
