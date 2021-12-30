@@ -94,7 +94,7 @@ export default class GetData extends React.Component {
     if (dollars > 49.99 && dollars < 100.00) {
       return Math.floor(dollars - 50)
     }  else if (dollars > 99.99) {
-      return (Math.floor(dollars - 100) * 2) + 50 
+      return (Math.floor(dollars - 100) * 2) + 50
     }
     return 0
   }
@@ -124,7 +124,9 @@ export default class GetData extends React.Component {
                                     <td>{r.points[0]}</td>
                                     <td>{r.points[1]}</td>
                                     <td>{r.points[2]}</td>
-                                    <td>TODO use reduce</td>
+                                    <td>{r.points.reduce(
+(prev, cur, index)=>prev+cur, 
+0)}</td>
                                   </tr>
                                 )}
           </tbody>

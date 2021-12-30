@@ -117,5 +117,17 @@
       "date":"11-11-2021",
       "customer_id":2,
       "amount":8.97
+    },
+    {
+      "id": 21,
+      "date":"10-01-2021",
+      "customer_id":7,
+      "amount":49.00
+    },
+    {
+      "id": 22,
+      "date":"11-11-2021",
+      "customer_id":7,
+      "amount":51.00
     }
   ]
