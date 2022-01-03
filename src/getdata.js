@@ -3,6 +3,9 @@ import moment from 'moment'
 
 export default class GetData extends React.Component {
 
+  startDate = '10-01-2021';
+  endDate = '12-31-2021';
+
   constructor(state) {
     super()
     this.state = {
@@ -49,12 +52,16 @@ export default class GetData extends React.Component {
     let transaction_month = 0
     let subtotal = 0
 
+    const start_date = moment(this.startDate, 'MM-DD-YYYY');
+    const start_month = start_date.format('M')
+    const end_date = moment(this.endDate, 'MM-DD-YYYY');
+    const end_month = end_date.format('M')
 
     array.map((transaction) => {
 
       // get the month of the current transaction
-      let date = moment(transaction.date, 'MM-DD-YYYY')
-      transaction_month = date.format('M')
+      let transaction_date = moment(transaction.date, 'MM-DD-YYYY')
+      transaction_month = transaction_date.format('M')
 
       if (customer_id !== transaction.customer_id) {
         // working with a new customer_id
@@ -68,9 +75,12 @@ export default class GetData extends React.Component {
         customer_id = transaction.customer_id
         previous_month = transaction_month
         points = []
+        subtotal = 0
 
-        subtotal = transaction.amount > 0 ? this.getPoints(transaction.amount) : 0;
-      } else {
+        if (transaction_date >= start_date && transaction_date <= end_date) {
+          subtotal = transaction.amount > 0 ? this.getPoints(transaction.amount) : 0;
+        }
+      } else if (transaction_date >= start_date && transaction_date <= end_date) {
 
         if (transaction_month !== previous_month) {
           // working with a new month
