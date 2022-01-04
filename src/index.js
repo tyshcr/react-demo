@@ -1,10 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import GetData from './getdata'
+import UserInterface from './ui'
 
 ReactDOM.render(
-  <GetData/>,
+  <UserInterface/>,
   document.getElementById('root')
 );

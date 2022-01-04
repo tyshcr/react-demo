@@ -1,139 +1,199 @@
 [
     {
       "id": 1,
-      "date":"12-24-2021",
+      "date":"2021-12-24",
       "customer_id":3,
       "amount":49.00
     },
     {
       "id": 2,
-      "date":"12-20-2021",
+      "date":"2021-12-20",
       "customer_id":4,
       "amount":52.20
     },
     {
       "id": 3,
-      "date":"12-01-2021",
+      "date":"2021-12-01",
       "customer_id":2,
       "amount":305.75
     },
     {
       "id": 4,
-      "date":"12-27-2021",
+      "date":"2021-12-27",
       "customer_id":2,
       "amount":99.97
     },
     {
       "id": 5,
-      "date":"11-20-2021",
+      "date":"2021-11-20",
       "customer_id":3,
       "amount":152.20
     },
     {
       "id": 6,
-      "date":"11-15-2021",
+      "date":"2021-11-15",
       "customer_id":1,
       "amount":395.75
     },
     {
       "id": 7,
-      "date":"10-27-2021",
+      "date":"2021-10-27",
       "customer_id":2,
       "amount":998.97
     },
     {
       "id": 8,
-      "date":"12-20-2021",
+      "date":"2021-12-20",
       "customer_id":3,
       "amount":152.20
     },
     {
       "id": 9,
-      "date":"12-01-2021",
+      "date":"2021-12-01",
       "customer_id":1,
       "amount":115.75
     },
     {
       "id": 10,
-      "date":"12-27-2021",
+      "date":"2021-12-27",
       "customer_id":5,
       "amount":333.97
     },{
       "id": 11,
-      "date":"10-04-2021",
+      "date":"2021-10-14",
       "customer_id":6,
       "amount":249.00
     },
     {
       "id": 12,
-      "date":"12-02-2021",
+      "date":"2021-12-02",
       "customer_id":4,
       "amount":152.20
     },
     {
       "id": 13,
-      "date":"11-01-2021",
+      "date":"2021-11-01",
       "customer_id":2,
       "amount":15.75
     },
     {
       "id": 14,
-      "date":"10-07-2021",
+      "date":"2021-10-07",
       "customer_id":5,
       "amount":101.97
     },
     {
       "id": 15,
-      "date":"10-21-2021",
+      "date":"2021-10-21",
       "customer_id":3,
       "amount":41.20
     },
     {
       "id": 16,
-      "date":"11-25-2021",
+      "date":"2021-11-25",
       "customer_id":5,
       "amount":52.75
     },
     {
       "id": 17,
-      "date":"10-25-2021",
+      "date":"2021-10-25",
       "customer_id":6,
       "amount":98.97
     },
     {
       "id": 18,
-      "date":"11-03-2021",
+      "date":"2021-11-03",
       "customer_id":3,
       "amount":102.20
     },
     {
       "id": 19,
-      "date":"12-01-2021",
+      "date":"2021-12-01",
       "customer_id":1,
       "amount":5.75
     },
     {
       "id": 20,
-      "date":"11-11-2021",
+      "date":"2021-11-11",
       "customer_id":2,
       "amount":8.97
     },
     {
       "id": 21,
-      "date":"10-01-2021",
+      "date":"2021-10-01",
       "customer_id":7,
       "amount":49.00
     },
     {
       "id": 22,
-      "date":"11-11-2021",
+      "date":"2021-11-11",
       "customer_id":7,
       "amount":51.00
     },
     {
       "id": 23,
-      "date":"09-01-2021",
+      "date":"2021-11-15",
       "customer_id":8,
-      "amount":99999.00
+      "amount":99.99
+    },
+    {
+      "id": 24,
+      "date":"2022-01-27",
+      "customer_id":5,
+      "amount":151.97
+    },
+    {
+      "id": 25,
+      "date":"2022-01-21",
+      "customer_id":3,
+      "amount":46.20
+    },
+    {
+      "id": 26,
+      "date":"2022-01-25",
+      "customer_id":5,
+      "amount":252.75
+    },
+    {
+      "id": 27,
+      "date":"2022-01-25",
+      "customer_id":6,
+      "amount":198.97
+    },
+    {
+      "id": 28,
+      "date":"2022-01-03",
+      "customer_id":3,
+      "amount":12.20
+    },
+    {
+      "id": 29,
+      "date":"2022-01-01",
+      "customer_id":1,
+      "amount":53.75
+    },
+    {
+      "id": 30,
+      "date":"2022-01-11",
+      "customer_id":2,
+      "amount":81.97
+    },
+    {
+      "id": 31,
+      "date":"2022-01-14",
+      "customer_id":7,
+      "amount":49.00
+    },
+    {
+      "id": 32,
+      "date":"2022-01-11",
+      "customer_id":7,
+      "amount":53.00
+    },
+    {
+      "id": 33,
+      "date":"2022-01-05",
+      "customer_id":8,
+      "amount":51.00
     }
   ]
